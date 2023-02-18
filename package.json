@@ -1,0 +1,24 @@
+{
+  "name": "leetcodequestions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dheepika6/leetcodeQuestions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dheepika6/leetcodeQuestions/issues"
+  },
+  "homepage": "https://github.com/dheepika6/leetcodeQuestions#readme",
+  "devDependencies": {
+    "@types/node": "^18.14.0",
+    "typescript": "^4.9.5"
+  }
+}
