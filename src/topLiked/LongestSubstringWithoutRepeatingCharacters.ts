@@ -12,26 +12,21 @@
 // Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
 function lengthOfLongestSubstring(s: string): number {
-  const hash = new Set<string>();
-  let top = 0, maxlength = 0; 
+  const hash = new Map<string, number>();
+  let top = 0,
+    maxlength = 0;
 
   for (let i = 0; i < s.length; i++) {
     const c = s[i];
 
-    if(hash.has(c)) {
-        while(top < i && s[top] !== c)
-        {
-            hash.delete(s[top]);
-            top ++;
-        }
-
-        top = top + 1;
+    if (hash.has(c) && top <= hash.get(c)!) {
+      top = hash.get(c)! + 1;
     }
-    else hash.add(c);
 
-    if(maxlength < i-top + 1)
-    {
-        maxlength = i-top + 1;
+    hash.set(c, i);
+
+    if (maxlength < i - top + 1) {
+      maxlength = i - top + 1;
     }
   }
 
@@ -46,3 +41,5 @@ console.log("res2", res2);
 
 const res3 = lengthOfLongestSubstring("tmmzuxt");
 console.log("res3", res3);
+
+export {};
