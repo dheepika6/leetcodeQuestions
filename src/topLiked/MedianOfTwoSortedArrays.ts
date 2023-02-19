@@ -7,37 +7,24 @@
 // Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
 
 function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
-  const arr = [];
   let a: number | null = null,
     b: number | null = null;
   const isOdd = (nums1.length + nums2.length) % 2 === 1;
   const maxMidIndex = Math.floor((nums1.length + nums2.length) / 2);
   let i1 = 0,
-    i2 = 0,
-    i3 = 0;
+    i2 = 0;
 
-  while ((i1 < nums1.length || i2 < nums2.length) && i3 <= maxMidIndex) {
+  while ((i1 < nums1.length || i2 < nums2.length) && i1 + i2 <= maxMidIndex) {
     if (nums1[i1] <= nums2[i2] || i2 >= nums2.length) {
-      //   arr[i3] = nums1[i1];
-
-      if (b !== null) {
-        a = b;
-      }
-
+      a = b;
       b = nums1[i1];
       i1++;
     } else {
-      //   arr[i3] = nums2[i2];
-      if (b !== null) {
-        a = b;
-      }
+      a = b;
       b = nums2[i2];
       i2++;
     }
-    i3++;
   }
-
-//   console.log("arr", maxMidIndex);
 
   return isOdd ? b! : (a! + b!) / 2;
 }
